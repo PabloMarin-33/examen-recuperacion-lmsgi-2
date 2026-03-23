@@ -58,7 +58,34 @@ Puedes responder a estas preguntas en este mismo archivo.
 ```html
 <link href="http://example.org">Entrar a mi sitio web</link>
 ```
+El tag utilizado para pasar el link es incorrecto, se utilizaria **<a>**:
+
+```html
+<a href="http://example.org">Entrar a mi sitio web</a>
+```
 
 2. ¿Que es una promesa? Crea un ejemplo con javascript donde demuestres como se maneja una.
+
+Es el objeto principal de las funciones asincronas que en si representara un valor que estara disponible en el futuro, un ejemplo:
+
+```JAVASCRIPT
+
+```
+
 3. ¿Que hace la funcion fetch? Explica mediante código y comentarios que hace cada una de sus partes.
+
+La funcion **fetch** es una funcion que sirve para hacer peticiones HTTP a un servidor, como se muestra aqui:
+
+```JAVASCRIPT
+//funcion definida
+async function ejemplo() {
+    const respuesta = await fetch ("/mensajes");//variable que solicita la peticion HTTP al setvidor
+    const datos = await respuesta.json();//variable que recoge los datos dentro de "/mensajes"
+
+    console.log(datos); //imprimir esos datos a la consola
+}
+
+ejemplo(); //llamada a la funcion
+```
+
 4. ¿Que tipos de inputs conoces? Citalos y describe que atributos pueden acompañar cada uno.
