@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mensajes</h1>
+
+    <h2>Tabla de Mensajes</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Contenido</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4">Cargando contenido de mensajes, espere...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Enviar Mensajes</h3>
+
+    <form action="/mensajes" method="post">
+        <input type="hidden" name="pass" value="plsdonthackthis">
+
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" required>
+
+        <label for="contenido">Contenido</label>
+        <input type="text" id="contenido" name="contenido" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
