@@ -69,7 +69,15 @@ El tag utilizado para pasar el link es incorrecto, se utilizaria **<a>**:
 Es el objeto principal de las funciones asincronas que en si representara un valor que estara disponible en el futuro, un ejemplo:
 
 ```JAVASCRIPT
+const ejemplo = new ejemplo ((resolve, reject) =>{
+    const funciona = true;
 
+    if(funciona){
+        resolve("La promesa se cumplio")
+    } else{
+        reject("Algo a saliso mal");
+    }
+})
 ```
 
 3. ¿Que hace la funcion fetch? Explica mediante código y comentarios que hace cada una de sus partes.
@@ -89,3 +97,37 @@ ejemplo(); //llamada a la funcion
 ```
 
 4. ¿Que tipos de inputs conoces? Citalos y describe que atributos pueden acompañar cada uno.
+
+Los inputs que yo sepa son:
+
+```html
+<input type="text"> <!-- Para escribir texto corto -->
+<input type="password"> <!-- Para lo que se escriba este oculto -->
+<input type="number"> <!-- Para escribir solo numeros -->
+<input type="date"> <!-- Para insertar la fecha -->
+<input type="checkbox"> <!-- Para seleccionar multiples opciones -->
+<input type="submit"> <!-- Para enviar el contenido -->
+<input type="radio"> <!-- Para un formulario con solo una opcion para escoger -->
+```
+
+Y los atributos de los que pueden acompañar son:
+
+- **id**: para dar un identificador al elemento.
+
+- **hidden**: para que se muestre oculto desde la perspectiva del usuario.
+
+- **name**: para enviar datos al servidor.
+
+- **placeholder**: para simplificar la insercion de datos.
+
+- **required**: indicando que es obligatorio rellenar este campo.
+
+- **value**: para dar un valor por defecto.
+
+- **min y max**: para insertar parametros numericos.
+
+- **submit**: para enviar datos al servidor.
+
+
+
+
