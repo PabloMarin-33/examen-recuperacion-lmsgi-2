@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mensajes</h1>
+
+    <h2>Tabla de Mensajes</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Contenido</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <tbody id="tabla"></tbody>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Enviar Mensajes</h3>
+
+    <form id="formulario">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" required>
+
+        <label for="contenido">Contenido</label>
+        <input type="text" id="contenido" name="usuario" required>
+
+    <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        const tabla = document.getElementById('tabla')
+
+        async function cargarMensajes(){
+            const respuesta = await fetch('/mensajes');
+            const contenidos = await respuesta.json();
+
+            tabla.innerHTML = "";
+
+            contenidos.forEach(msg => {
+                const tr = document.createElement('tr');
+                tr.innerHTML=`
+                <td>${msg.id}</td>
+                <td>${msg.user}</td>
+                <td>${msg.content}</td>
+                <td>${msg.created_at || '-'}</td>
+                `;
+                tabla.appendChild(tr);
+            });
+        }
+
+        document.getElementById('formulario').addEventListener('submit', async(i) =>{
+            i.preventDefault();
+
+            const usuarios = getElementById('usuario').value;
+            const mensajes = getElementById('contenido').value;
+
+            await fetch("/mensajes", {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body:JSON.stringify({usuario, contenido, pass: 'plsdonthackthis'})
+            });
+
+            document.getElementById('formulario').reset();
+            cargarMensajes();
+        })
+        cargar.mensajes();
+    </script>
+</body>
+</html>
